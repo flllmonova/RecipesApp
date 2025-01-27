@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightBackgroundColor">#F4FAFF</color>
+    <color name="redBackgroundColor">#E13E3E</color>
+    <color name="blueBackgroundColor">#525DC0</color>
+    <color name="titleTextColor">#5F3678</color>
+    <color name="descriptionTextColor">#666666</color>
+    <color name="navigationBarColor">#F5F5F5</color>
 </resources>
