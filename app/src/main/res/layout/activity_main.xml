@@ -16,17 +16,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingHorizontal="@dimen/mainMargin">
+        android:paddingHorizontal="@dimen/margin16">
 
         <Button
             android:id="@+id/btnCategory"
             style="@style/StyleNavButton"
-            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="2dp"
+            android:layout_marginEnd="@dimen/marginBetweenButtons2"
             android:backgroundTint="@color/blueBackgroundColor"
-            android:gravity="center"
             android:text="@string/button_category"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnFavourites"
@@ -35,15 +33,13 @@
         <Button
             android:id="@+id/btnFavourites"
             style="@style/StyleNavButton"
-            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="@dimen/marginBetweenButtons2"
             android:backgroundTint="@color/redBackgroundColor"
-            android:gravity="center"
             android:text="@string/button_favourites"
             app:icon="@drawable/ic_favourites"
-            app:iconPadding="10dp"
+            app:iconPadding="@dimen/iconPadding10"
             app:iconGravity="textEnd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
