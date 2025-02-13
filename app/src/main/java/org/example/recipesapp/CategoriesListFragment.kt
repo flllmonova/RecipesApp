@@ -19,7 +19,11 @@ class CategoriesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentListCategoriesBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
