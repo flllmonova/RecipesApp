@@ -2,6 +2,7 @@ package org.example.recipesapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import org.example.recipesapp.databinding.ActivityMainBinding
 
@@ -18,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.commit {
-            add(R.id.mainContainer, CategoriesListFragment())
+            setReorderingAllowed(true)
+            add<CategoriesListFragment>(R.id.mainContainer)
         }
     }
 }
