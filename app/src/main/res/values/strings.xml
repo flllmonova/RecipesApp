@@ -2,5 +2,6 @@
     <string name="app_name">Recipes App</string>
     <string name="button_category">категории</string>
     <string name="button_favourites">избранное</string>
-    <string name="fragmentListCategories">Fragment list categories</string>
+    <string name="fragment_list_categories">Fragment List Categories</string>
+    <string name="fragment_favorites">Fragment Favorites</string>
 </resources>
