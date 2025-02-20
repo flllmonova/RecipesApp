@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin8"
+    android:layout_marginBottom="@dimen/margin16"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/cornerRadius8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageCategoryItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/content_desc_banner_category"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/padding8">
+
+            <TextView
+                android:id="@+id/titleCategoryItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/StyleTitle14"
+                android:textColor="@color/titleTextColor"
+                android:layout_marginBottom="@dimen/margin8" />
+
+            <TextView
+                android:id="@+id/descriptionCategoryItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/StyleDescription12" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
