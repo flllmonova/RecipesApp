@@ -13,5 +13,6 @@
     <dimen name="margin16">16dp</dimen>
     <dimen name="margin8">8dp</dimen>
     <dimen name="headerHeight">224dp</dimen>
+    <dimen name="categoryImageHeight">130dp</dimen>
     <dimen name="cornerRadius8">8dp</dimen>
 </resources>
