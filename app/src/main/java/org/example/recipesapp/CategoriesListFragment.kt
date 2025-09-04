@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import org.example.recipesapp.databinding.FragmentListCategoriesBinding
 
 class CategoriesListFragment : Fragment() {
     private var _binding: FragmentListCategoriesBinding? = null
     private val binding
-        get() = _binding
-            ?: throw IllegalStateException(
-                "Binding FragmentListCategoriesBinding must not be null"
-            )
+        get() = _binding ?: throw IllegalStateException(
+            "Binding for FragmentListCategoriesBinding must not be null"
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,5 +39,18 @@ class CategoriesListFragment : Fragment() {
     private fun initRecycler() {
         val adapter = CategoriesListAdapter(STUB.getCategories())
         binding.rvCategories.adapter = adapter
+        adapter.setOnItemClickListener(object : CategoriesListAdapter.OnItemClickListener {
+            override fun onItemClick() {
+                openRecipesByCategoryId()
+            }
+        })
+    }
+
+    private fun openRecipesByCategoryId() {
+        activity?.supportFragmentManager?.commit {
+            replace<RecipesListFragment>(R.id.mainContainer)
+            setReorderingAllowed(true)
+            addToBackStack("Recipes List Fragment")
+        }
     }
 }
