@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/imageCategoryItem"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/categoryImageHeight"
             android:contentDescription="@string/content_desc_banner_category"
             android:scaleType="centerCrop" />
 
@@ -35,8 +35,7 @@
                 style="@style/StyleTitle14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin8"
-                android:textColor="@color/titleTextColor" />
+                android:layout_marginBottom="@dimen/margin8" />
 
             <TextView
                 android:id="@+id/descriptionCategoryItem"

@@ -22,8 +22,12 @@ class CategoriesListFragment : Fragment() {
         _binding = FragmentListCategoriesBinding.inflate(
             inflater, container, false
         )
-        initRecycler()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initRecycler()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
