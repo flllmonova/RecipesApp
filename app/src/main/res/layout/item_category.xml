@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin8"
     android:layout_marginBottom="@dimen/margin16"
+    android:background="?attr/selectableItemBackgroundBorderless"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/white"
@@ -19,10 +19,9 @@
         <ImageView
             android:id="@+id/imageCategoryItem"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/categoryImageHeight"
             android:contentDescription="@string/content_desc_banner_category"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/burger" />
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,16 +35,13 @@
                 style="@style/StyleTitle14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin8"
-                android:textColor="@color/titleTextColor"
-                tools:text="Бургеры" />
+                android:layout_marginBottom="@dimen/margin8" />
 
             <TextView
                 android:id="@+id/descriptionCategoryItem"
                 style="@style/StyleDescription12"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Рецепты всех популярных видов бургеров" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
