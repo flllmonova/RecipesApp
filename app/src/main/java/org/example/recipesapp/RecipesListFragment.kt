@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import org.example.recipesapp.databinding.FragmentRecipesListBinding
 import java.io.InputStream
 
@@ -46,10 +48,29 @@ class RecipesListFragment : Fragment() {
         } catch (e: Exception) {
             Log.e("Image not found", Log.getStackTraceString(e))
         }
+        initRecycler(categoryId ?: 0)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun initRecycler(categoryId: Int) {
+        val adapter = RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId))
+        binding.rvRecipes.adapter = adapter
+        adapter.setOnItemClickListener(object : RecipesListAdapter.OnItemClickListener {
+            override fun onItemClick(recipeId: Int) {
+                openRecipeByRecipeId(recipeId)
+            }
+        })
+    }
+
+    fun openRecipeByRecipeId(recipeId: Int) {
+        activity?.supportFragmentManager?.commit {
+            replace<RecipeFragment>(R.id.mainContainer)
+            setReorderingAllowed(true)
+            addToBackStack("Recipe Fragment")
+        }
     }
 }

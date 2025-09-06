@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageCategoryItem"
+            android:id="@+id/ivCategoryItem"
             android:layout_width="match_parent"
             android:layout_height="@dimen/categoryImageHeight"
             android:contentDescription="@string/content_desc_banner_category"
@@ -31,14 +31,14 @@
             android:padding="@dimen/padding8">
 
             <TextView
-                android:id="@+id/titleCategoryItem"
+                android:id="@+id/tvCategoryItemTitle"
                 style="@style/StyleTitle14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin8" />
 
             <TextView
-                android:id="@+id/descriptionCategoryItem"
+                android:id="@+id/tvCategoryItemDescription"
                 style="@style/StyleDescription12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
