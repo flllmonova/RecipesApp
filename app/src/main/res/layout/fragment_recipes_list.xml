@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/margin8"
         android:layout_marginTop="@dimen/margin16"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_category" />
 
 </LinearLayout>
