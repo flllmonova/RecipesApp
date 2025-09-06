@@ -1,11 +1,14 @@
 package org.example.recipesapp
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.example.recipesapp.databinding.FragmentRecipesListBinding
+import java.io.InputStream
 
 class RecipesListFragment : Fragment() {
 
@@ -15,6 +18,10 @@ class RecipesListFragment : Fragment() {
             "Binding for FragmentRecipesListBinding must not be null"
         )
 
+    var categoryId: Int? = null
+    var categoryName: String? = null
+    var categoryImageUrl: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,6 +30,22 @@ class RecipesListFragment : Fragment() {
             inflater, container, false
         )
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        categoryId = arguments?.getInt(ARG_CATEGORY_ID) ?: 0
+        categoryName = arguments?.getString(ARG_CATEGORY_NAME) ?: ""
+        categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL) ?: ""
+        binding.tvCategoryTitle.text = categoryName
+        try {
+            val inputStream: InputStream? =
+                binding.root.context?.assets?.open(categoryImageUrl.toString())
+            val drawable = Drawable.createFromStream(inputStream, null)
+            binding.ivCategory.setImageDrawable(drawable)
+        } catch (e: Exception) {
+            Log.e("Image not found", Log.getStackTraceString(e))
+        }
     }
 
     override fun onDestroyView() {

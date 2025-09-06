@@ -14,7 +14,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
     var itemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun onItemClick()
+        fun onItemClick(categoryId: Int)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -47,7 +47,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
         viewHolder.titleCategoryItem.text = category.title
         viewHolder.descriptionCategoryItem.text = category.description
         viewHolder.itemBinding.root.setOnClickListener {
-            itemClickListener?.onItemClick()
+            itemClickListener?.onItemClick(category.id)
         }
     }
 
