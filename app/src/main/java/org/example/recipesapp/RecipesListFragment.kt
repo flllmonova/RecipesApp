@@ -34,9 +34,9 @@ class RecipesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categoryId = requireArguments().getInt(ARG_CATEGORY_ID)
-        categoryName = requireArguments().getString(ARG_CATEGORY_NAME)
-        categoryImageUrl = requireArguments().getString(ARG_CATEGORY_IMAGE_URL)
+        categoryId = arguments?.getInt(ARG_CATEGORY_ID) ?: 0
+        categoryName = arguments?.getString(ARG_CATEGORY_NAME) ?: ""
+        categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL) ?: ""
         binding.tvCategoryTitle.text = categoryName
         try {
             val inputStream: InputStream? =
