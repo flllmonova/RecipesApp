@@ -37,12 +37,12 @@ class RecipesListFragment : Fragment() {
         categoryId = requireArguments().getInt(ARG_CATEGORY_ID)
         categoryName = requireArguments().getString(ARG_CATEGORY_NAME)
         categoryImageUrl = requireArguments().getString(ARG_CATEGORY_IMAGE_URL)
-        binding.categoryName.text = categoryName
+        binding.tvCategoryTitle.text = categoryName
         try {
             val inputStream: InputStream? =
                 binding.root.context?.assets?.open(categoryImageUrl.toString())
             val drawable = Drawable.createFromStream(inputStream, null)
-            binding.categoryImage.setImageDrawable(drawable)
+            binding.ivCategory.setImageDrawable(drawable)
         } catch (e: Exception) {
             Log.e("Image not found", Log.getStackTraceString(e))
         }

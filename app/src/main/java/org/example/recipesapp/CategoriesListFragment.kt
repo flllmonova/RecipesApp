@@ -6,13 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import org.example.recipesapp.databinding.FragmentListCategoriesBinding
-
-const val ARG_CATEGORY_ID = "categoryId"
-const val ARG_CATEGORY_NAME = "categoryName"
-const val ARG_CATEGORY_IMAGE_URL = "categoryImageUrl"
 
 class CategoriesListFragment : Fragment() {
     private var _binding: FragmentListCategoriesBinding? = null
@@ -52,8 +48,9 @@ class CategoriesListFragment : Fragment() {
     }
 
     private fun openRecipesByCategoryId(categoryId: Int) {
-        val categoryName = STUB.getCategories()[categoryId].title
-        val categoryImageUrl = STUB.getCategories()[categoryId].imageUrl
+        val category = STUB.getCategories().find { it.id == categoryId }
+        val categoryName = category?.title
+        val categoryImageUrl = category?.imageUrl
         val bundle: Bundle = bundleOf(
             ARG_CATEGORY_ID to categoryId,
             ARG_CATEGORY_NAME to categoryName,
@@ -61,7 +58,7 @@ class CategoriesListFragment : Fragment() {
         )
 
         activity?.supportFragmentManager?.commit {
-            add<RecipesListFragment>(R.id.mainContainer, args = bundle)
+            replace<RecipesListFragment>(R.id.mainContainer, args = bundle)
             setReorderingAllowed(true)
             addToBackStack("Recipes List Fragment")
         }
