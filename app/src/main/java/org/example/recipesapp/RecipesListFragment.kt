@@ -56,7 +56,7 @@ class RecipesListFragment : Fragment() {
         _binding = null
     }
 
-    fun initRecycler(categoryId: Int) {
+    private fun initRecycler(categoryId: Int) {
         val adapter = RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId))
         binding.rvRecipes.adapter = adapter
         adapter.setOnItemClickListener(object : RecipesListAdapter.OnItemClickListener {
@@ -66,7 +66,7 @@ class RecipesListFragment : Fragment() {
         })
     }
 
-    fun openRecipeByRecipeId(recipeId: Int) {
+    private fun openRecipeByRecipeId(recipeId: Int) {
         activity?.supportFragmentManager?.commit {
             replace<RecipeFragment>(R.id.mainContainer)
             setReorderingAllowed(true)
