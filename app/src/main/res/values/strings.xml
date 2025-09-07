@@ -5,4 +5,6 @@
     <string name="title_categories">категории</string>
     <string name="content_desc_banner_categories">изображение категорий</string>
     <string name="content_desc_banner_category">изображение категории</string>
+    <string name="content_desc_banner_recipe">изображение блюда</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

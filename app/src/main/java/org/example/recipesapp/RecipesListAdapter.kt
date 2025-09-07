@@ -5,49 +5,47 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.example.recipesapp.databinding.ItemCategoryBinding
+import org.example.recipesapp.databinding.ItemRecipeBinding
 import java.io.InputStream
 
-class CategoriesListAdapter(private val dataSet: List<Category>) :
-    RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
+class RecipesListAdapter(private val dataSet: List<Recipe>) :
+    RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {
 
     var itemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun onItemClick(categoryId: Int)
+        fun onItemClick(recipeId: Int)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         itemClickListener = listener
     }
 
-    class ViewHolder(val itemBinding: ItemCategoryBinding) :
+    class ViewHolder(val itemBinding: ItemRecipeBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        val imageCategoryItem = itemBinding.ivCategoryItem
-        val titleCategoryItem = itemBinding.tvCategoryItemTitle
-        val descriptionCategoryItem = itemBinding.tvCategoryItemDescription
+        val imageRecipeItem = itemBinding.ivRecipeItem
+        val titleRecipeItem = itemBinding.tvRecipeItemTitle
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(viewGroup.context)
-        val binding = ItemCategoryBinding.inflate(inflater, viewGroup, false)
+        val binding = ItemRecipeBinding.inflate(inflater, viewGroup, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val category = dataSet[position]
+        val recipe = dataSet[position]
         try {
             val inputStream: InputStream? =
-                viewHolder.itemBinding.root.context?.assets?.open(category.imageUrl)
+                viewHolder.itemBinding.root.context?.assets?.open(recipe.imageUrl)
             val drawable = Drawable.createFromStream(inputStream, null)
-            viewHolder.imageCategoryItem.setImageDrawable(drawable)
+            viewHolder.imageRecipeItem.setImageDrawable(drawable)
         } catch (e: Exception) {
             Log.e("Image not found", Log.getStackTraceString(e))
         }
-        viewHolder.titleCategoryItem.text = category.title
-        viewHolder.descriptionCategoryItem.text = category.description
+        viewHolder.titleRecipeItem.text = recipe.title
         viewHolder.itemBinding.root.setOnClickListener {
-            itemClickListener?.onItemClick(category.id)
+            itemClickListener?.onItemClick(recipe.id)
         }
     }
 
