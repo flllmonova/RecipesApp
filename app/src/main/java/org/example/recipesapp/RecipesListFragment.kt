@@ -1,6 +1,7 @@
 package org.example.recipesapp
 
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -37,9 +38,14 @@ class RecipesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categoryId = arguments?.getInt(ARG_CATEGORY_ID) ?: 0
-        categoryName = arguments?.getString(ARG_CATEGORY_NAME) ?: ""
-        categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL) ?: ""
+        val category = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelable(ARG_CATEGORY, Category::class.java)
+        } else {
+            arguments?.getParcelable(ARG_CATEGORY)
+        }
+        categoryId = category?.id ?: 0
+        categoryName = category?.title ?: ""
+        categoryImageUrl = category?.imageUrl ?: ""
         binding.tvCategoryTitle.text = categoryName
         try {
             val inputStream: InputStream? =
