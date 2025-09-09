@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.google.android.material.divider.MaterialDividerItemDecoration
 import org.example.recipesapp.databinding.FragmentRecipeBinding
@@ -61,21 +62,28 @@ class RecipeFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        initIngredientsRecycler()
-        initMethodRecycler()
-    }
-
-    private fun initIngredientsRecycler() {
-        val adapter = IngredientsAdapter(recipe?.ingredients ?: listOf())
-        binding.rvIngredients.adapter = adapter
+        val adapterIngredients = IngredientsAdapter(recipe?.ingredients ?: listOf())
+        binding.rvIngredients.adapter = adapterIngredients
         binding.rvIngredients.addItemDecoration(initDivider())
-    }
 
-    private fun initMethodRecycler() {
-        val adapter = MethodAdapter(recipe?.method ?: listOf())
-        binding.rvMethod.adapter = adapter
+        val adapterMethod = MethodAdapter(recipe?.method ?: listOf())
+        binding.rvMethod.adapter = adapterMethod
         binding.rvMethod.addItemDecoration(initDivider())
 
+        binding.sbPortions.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar?,
+                progress: Int,
+                fromUser: Boolean
+            ) {
+                binding.tvPortionsAmount.text = progress.toString()
+                adapterIngredients.updateIngredients(progress)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
     }
 
     private fun initDivider(): MaterialDividerItemDecoration {
@@ -86,7 +94,7 @@ class RecipeFragment : Fragment() {
             dividerColor = resources.getColor(
                 R.color.navigationBarColor, context.theme
             )
-            dividerThickness = resources.getInteger(R.integer.dividerThickness)
+            dividerThickness = resources.getInteger(R.integer.divider_thickness)
         }
         return divider
     }
