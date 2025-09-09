@@ -2,8 +2,10 @@
 <resources>
     <dimen name="textSize12">12sp</dimen>
     <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
     <dimen name="textSize20">20sp</dimen>
     <dimen name="lineHeight16">16sp</dimen>
+    <dimen name="lineHeight17">17sp</dimen>
     <dimen name="lineHeight24">24sp</dimen>
     <dimen name="buttonCornerRadius8">8dp</dimen>
     <dimen name="iconPadding10">10dp</dimen>
@@ -11,10 +13,15 @@
     <dimen name="padding10">10dp</dimen>
     <dimen name="padding20">20dp</dimen>
     <dimen name="marginBetweenButtons2">2dp</dimen>
+    <dimen name="margin20">20dp</dimen>
     <dimen name="margin16">16dp</dimen>
     <dimen name="margin8">8dp</dimen>
     <dimen name="headerHeight">224dp</dimen>
     <dimen name="categoryImageHeight">130dp</dimen>
     <dimen name="recipeImageHeight">100dp</dimen>
     <dimen name="cornerRadius8">8dp</dimen>
+    <dimen name="margin6">6dp</dimen>
+    <dimen name="maxWidthRecipeTitle">242dp</dimen>
+    <dimen name="padding4">4dp</dimen>
+    <dimen name="padding12">12dp</dimen>
 </resources>

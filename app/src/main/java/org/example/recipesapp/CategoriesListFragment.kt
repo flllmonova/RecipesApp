@@ -49,13 +49,7 @@ class CategoriesListFragment : Fragment() {
 
     private fun openRecipesByCategoryId(categoryId: Int) {
         val category = STUB.getCategories().find { it.id == categoryId }
-        val categoryName = category?.title
-        val categoryImageUrl = category?.imageUrl
-        val bundle: Bundle = bundleOf(
-            ARG_CATEGORY_ID to categoryId,
-            ARG_CATEGORY_NAME to categoryName,
-            ARG_CATEGORY_IMAGE_URL to categoryImageUrl
-        )
+        val bundle = bundleOf(ARG_CATEGORY to category)
 
         activity?.supportFragmentManager?.commit {
             replace<RecipesListFragment>(R.id.mainContainer, args = bundle)

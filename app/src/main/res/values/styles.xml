@@ -14,6 +14,24 @@
         <item name="lineHeight">@dimen/lineHeight16</item>
     </style>
 
+    <style name="StyleTitle16" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">@dimen/textSize16</item>
+        <item name="android:lineHeight">@dimen/lineHeight16</item>
+        <item name="android:textColor">@color/descriptionTextColor</item>
+    </style>
+
+    <style name="StyleDescription14" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">@dimen/textSize14</item>
+        <item name="android:lineHeight">@dimen/lineHeight17</item>
+        <item name="android:textColor">@color/descriptionTextColor</item>
+    </style>
+
+    <style name="StyleCapsDescription14" parent="StyleDescription14">
+        <item name="textAllCaps">true</item>
+    </style>
+
     <style name="StyleDescription12" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">@dimen/textSize12</item>
@@ -29,5 +47,4 @@
         <item name="cornerRadius">@dimen/buttonCornerRadius8</item>
         <item name="android:gravity">center</item>
     </style>
-
 </resources>
