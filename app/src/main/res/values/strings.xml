@@ -7,7 +7,7 @@
     <string name="content_desc_banner_category">изображение категории</string>
     <string name="content_desc_banner_recipe">изображение блюда</string>
     <string name="title_ingredients">ингредиенты</string>
-    <string name="title_portions">Порции: </string>
+    <string name="title_portions">Порции:</string>
     <string name="title_method">способ приготовления</string>
     <string name="ingredient_quantity">%s %s</string>
     <string name="method_stage">%d. %s</string>"
