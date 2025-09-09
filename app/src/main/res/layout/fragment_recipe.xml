@@ -57,12 +57,12 @@
                 android:text="@string/title_ingredients" />
 
             <TextView
-                android:id="@+id/tvPortionsAmountTitle"
+                android:id="@+id/tvPortionsTitle"
                 style="@style/StyleTitle16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin6"
-                android:text="@string/portions_amount" />
+                android:text="@string/title_portions" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvIngredients"
