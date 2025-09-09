@@ -16,20 +16,24 @@
         <item quantity="one">%d лист</item>
         <item quantity="few">%d листа</item>
         <item quantity="many">%d листов</item>
+        <item quantity="other">%d листов</item>
     </plurals>
     <plurals name="unit_of_measure_slice">
         <item quantity="one">%d ломтик</item>
         <item quantity="few">%d ломтика</item>
         <item quantity="many">%d ломтиков</item>
+        <item quantity="other">%d ломтиков</item>
     </plurals>
     <plurals name="unit_of_measure_table_spoon">
         <item quantity="one">%d ст. ложка</item>
         <item quantity="few">%d ст. ложки</item>
         <item quantity="many">%d ст. ложек</item>
+        <item quantity="other">%d ст. ложек</item>
     </plurals>
     <plurals name="unit_of_measure_tea_spoon">
         <item quantity="one">%d ч. ложка</item>
         <item quantity="few">%d ч. ложки</item>
         <item quantity="many">%d ч. ложек</item>
+        <item quantity="other">%d ч. ложек</item>
     </plurals>
 </resources>
