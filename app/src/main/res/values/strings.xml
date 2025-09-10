@@ -11,6 +11,7 @@
     <string name="title_method">способ приготовления</string>
     <string name="quantity_ingredient">%s %s</string>
     <string name="method_stage">%d. %s</string>
+    <string name="template_float_portions_amount">%.1f</string>
     <string name="portions_amount_min">1</string>
     <plurals name="unit_of_measure_leaf">
         <item quantity="one">%d лист</item>

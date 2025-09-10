@@ -49,8 +49,11 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
             )
         } else res.getString(
             R.string.quantity_ingredient,
-            if (countedQuantity % 1 == 0f) countedQuantity.roundToInt()
-            else countedQuantity,
+            if (countedQuantity % 1 == 0f) countedQuantity.roundToInt().toString()
+            else String.format(
+                res.getString(R.string.template_float_portions_amount),
+                countedQuantity
+            ).replace(",", "."),
             ingredient.unitOfMeasure
         )
 
