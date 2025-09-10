@@ -1,5 +1,6 @@
 package org.example.recipesapp
 
+import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -49,11 +50,15 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
             )
         } else res.getString(
             R.string.quantity_ingredient,
-            if (countedQuantity % 1 == 0f) countedQuantity.roundToInt().toString()
-            else String.format(
-                res.getString(R.string.template_float_portions_amount),
-                countedQuantity
-            ).replace(",", "."),
+            (if (countedQuantity % 1 == 0f) countedQuantity.roundToInt().toString()
+            else {
+                val symbols = android.icu.text.DecimalFormatSymbols()
+                symbols.decimalSeparator = '.'
+                val decimalFormat = DecimalFormat(
+                    res.getString(R.string.template_float_portions_amount), symbols
+                )
+                decimalFormat.format(countedQuantity)
+            }),
             ingredient.unitOfMeasure
         )
 
