@@ -1,11 +1,12 @@
 package org.example.recipesapp
 
-import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.example.recipesapp.databinding.ItemIngredientBinding
-import kotlin.math.roundToInt
+import java.math.BigDecimal
+import android.icu.math.BigDecimal.ROUND_DOWN
+import java.math.BigInteger
 
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
@@ -39,31 +40,29 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val ingredient = dataSet[position]
-        val res = viewHolder.itemView.resources
-        val countedQuantity = (ingredient.quantity.toFloatOrNull() ?: 1f) * (quantity ?: 1)
-        val quantityString = if (countedQuantity % 1 == 0f
-            && quantityStringsUnitsOfMeasure.keys.contains(ingredient.unitOfMeasure)
+        val countedQuantity = (BigDecimal(ingredient.quantity)
+                * (quantity ?: 1).toBigDecimal())
+        val roundedQuantity = try {
+            countedQuantity.toBigIntegerExact()
+        } catch (e: Exception) {
+            countedQuantity.setScale(1, ROUND_DOWN)
+        }
+        viewHolder.descriptionIngredientItem.text = ingredient.description
+        viewHolder.quantityIngredientItem.text = if (
+            roundedQuantity is BigInteger
+            && quantityStringsUnitsOfMeasure.contains(ingredient.unitOfMeasure)
         ) {
-            res.getQuantityString(
-                quantityStringsUnitsOfMeasure[ingredient.unitOfMeasure]!!,
-                countedQuantity.roundToInt(), countedQuantity.roundToInt()
+            viewHolder.itemView.resources.getQuantityString(
+                quantityStringsUnitsOfMeasure.getOrDefault(
+                    ingredient.unitOfMeasure, R.string.quantity_ingredient
+                ),
+                roundedQuantity.toInt(), roundedQuantity.toInt()
             )
-        } else res.getString(
+        } else viewHolder.itemView.resources.getString(
             R.string.quantity_ingredient,
-            (if (countedQuantity % 1 == 0f) countedQuantity.roundToInt().toString()
-            else {
-                val symbols = android.icu.text.DecimalFormatSymbols()
-                symbols.decimalSeparator = '.'
-                val decimalFormat = DecimalFormat(
-                    res.getString(R.string.template_float_portions_amount), symbols
-                )
-                decimalFormat.format(countedQuantity)
-            }),
+            roundedQuantity.toString(),
             ingredient.unitOfMeasure
         )
-
-        viewHolder.descriptionIngredientItem.text = ingredient.description
-        viewHolder.quantityIngredientItem.text = quantityString
     }
 
     override fun getItemCount(): Int = dataSet.size
