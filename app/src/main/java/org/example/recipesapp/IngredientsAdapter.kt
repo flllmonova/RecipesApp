@@ -11,7 +11,7 @@ import java.math.BigInteger
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
-    private var quantity: Int? = null
+    private var quantity = PORTIONS_AMOUNT_MIN
 
     fun updateIngredients(progress: Int) {
         quantity = progress
@@ -40,8 +40,7 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val ingredient = dataSet[position]
-        val countedQuantity = (BigDecimal(ingredient.quantity)
-                * (quantity ?: 1).toBigDecimal())
+        val countedQuantity = (BigDecimal(ingredient.quantity) * (quantity).toBigDecimal())
         val roundedQuantity = if (countedQuantity % 1.toBigDecimal() == 0.toBigDecimal()) {
             countedQuantity.toBigInteger()
         } else {
