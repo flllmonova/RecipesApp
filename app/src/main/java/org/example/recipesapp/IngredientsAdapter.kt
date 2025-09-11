@@ -1,11 +1,11 @@
 package org.example.recipesapp
 
+import android.icu.math.BigDecimal.ROUND_DOWN
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.example.recipesapp.databinding.ItemIngredientBinding
 import java.math.BigDecimal
-import android.icu.math.BigDecimal.ROUND_DOWN
 import java.math.BigInteger
 
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
@@ -42,9 +42,9 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
         val ingredient = dataSet[position]
         val countedQuantity = (BigDecimal(ingredient.quantity)
                 * (quantity ?: 1).toBigDecimal())
-        val roundedQuantity = try {
-            countedQuantity.toBigIntegerExact()
-        } catch (e: Exception) {
+        val roundedQuantity = if (countedQuantity % 1.toBigDecimal() == 0.toBigDecimal()) {
+            countedQuantity.toBigInteger()
+        } else {
             countedQuantity.setScale(1, ROUND_DOWN)
         }
         viewHolder.descriptionIngredientItem.text = ingredient.description
