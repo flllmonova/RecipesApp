@@ -41,9 +41,9 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val ingredient = dataSet[position]
         val countedQuantity = (BigDecimal(ingredient.quantity) * (quantity).toBigDecimal())
-        val roundedQuantity = if (countedQuantity % 1.toBigDecimal() == 0.toBigDecimal()) {
-            countedQuantity.toBigInteger()
-        } else {
+        val roundedQuantity = try {
+            countedQuantity.toBigIntegerExact()
+        } catch (e: Exception) {
             countedQuantity.setScale(1, ROUND_DOWN)
         }
         viewHolder.descriptionIngredientItem.text = ingredient.description
