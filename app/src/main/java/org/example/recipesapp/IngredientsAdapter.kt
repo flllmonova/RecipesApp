@@ -53,9 +53,8 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
             && quantityStringsUnitsOfMeasure.contains(ingredient.unitOfMeasure)
         ) {
             viewHolder.itemView.resources.getQuantityString(
-                quantityStringsUnitsOfMeasure.getOrDefault(
-                    ingredient.unitOfMeasure, R.string.quantity_ingredient
-                ),
+                quantityStringsUnitsOfMeasure[ingredient.unitOfMeasure]
+                    ?: R.plurals.unit_of_measure_default,
                 roundedQuantity.toInt(), roundedQuantity.toInt()
             )
         } else viewHolder.itemView.resources.getString(

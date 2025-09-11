@@ -37,4 +37,7 @@
         <item quantity="many">%d ч. ложек</item>
         <item quantity="other">%d ч. ложек</item>
     </plurals>
+    <plurals name="unit_of_measure_default">
+        <item quantity="other">%d</item>
+    </plurals>
 </resources>
