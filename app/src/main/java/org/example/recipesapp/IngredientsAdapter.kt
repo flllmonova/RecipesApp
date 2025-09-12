@@ -46,7 +46,9 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
             .run {
                 if (this.remainder(BigDecimal(1)) == BigDecimal("0.0")) {
                     this.toBigInteger()
-                } else this.stripTrailingZeros()
+                } else {
+                    this.stripTrailingZeros()
+                }
             }
         viewHolder.descriptionIngredientItem.text = ingredient.description
         viewHolder.quantityIngredientItem.text = (
