@@ -81,12 +81,13 @@
 
             <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sbPortions"
+                style="@style/StyleSeekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin16"
-                android:progress="@integer/portions_amount_min"
                 android:max="@integer/portions_amount_max"
-                android:min="@integer/portions_amount_min" />
+                android:min="@integer/portions_amount_min"
+                android:progress="@integer/portions_amount_min" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvIngredients"
