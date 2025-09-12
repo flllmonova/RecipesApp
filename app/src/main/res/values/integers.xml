@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="dividerThickness">3</integer>
+    <integer name="divider_thickness">3</integer>
+    <integer name="portions_amount_min">1</integer>
+    <integer name="portions_amount_max">5</integer>
 </resources>
