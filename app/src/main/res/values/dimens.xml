@@ -24,4 +24,9 @@
     <dimen name="maxWidthRecipeTitle">242dp</dimen>
     <dimen name="padding4">4dp</dimen>
     <dimen name="padding12">12dp</dimen>
+    <dimen name="seekBarThumbCornerRadius">2dp</dimen>
+    <dimen name="seekBarProgressCornerRadius">4dp</dimen>
+    <dimen name="seekBarThumbHeight">30dp</dimen>
+    <dimen name="seekBarThumbWidth">8dp</dimen>
+    <dimen name="seekBarProgressHeight">16dp</dimen>
 </resources>

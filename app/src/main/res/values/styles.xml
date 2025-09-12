@@ -47,4 +47,9 @@
         <item name="cornerRadius">@dimen/buttonCornerRadius8</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="StyleSeekbar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:thumb">@drawable/shape_seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/shape_seekbar_progress</item>
+    </style>
 </resources>
