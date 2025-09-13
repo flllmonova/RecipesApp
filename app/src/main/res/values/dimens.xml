@@ -29,4 +29,6 @@
     <dimen name="seekBarThumbHeight">30dp</dimen>
     <dimen name="seekBarThumbWidth">8dp</dimen>
     <dimen name="seekBarProgressHeight">16dp</dimen>
+    <dimen name="imageButtonHeartHeight">40dp</dimen>
+    <dimen name="imageButtonHeartWidth">40dp</dimen>
 </resources>
