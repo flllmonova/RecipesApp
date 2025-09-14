@@ -63,14 +63,13 @@ class RecipeFragment : Fragment() {
         }
 
         binding.ibFavorites.apply {
-            val favoriteRecipesIdSet = HashSet(getFavorites())
-            val isRecipeInFavorites = recipe?.id.toString() in favoriteRecipesIdSet
-
-            if (isRecipeInFavorites) setImageResource(R.drawable.ic_heart)
+            var favoriteRecipesIdSet = getFavorites()
+            if (recipe?.id.toString() in favoriteRecipesIdSet) setImageResource(R.drawable.ic_heart)
             else setImageResource(R.drawable.ic_heart_empty)
 
             setOnClickListener {
-                if (isRecipeInFavorites) {
+                favoriteRecipesIdSet = HashSet(getFavorites())
+                if (recipe?.id.toString() in favoriteRecipesIdSet) {
                     setImageResource(R.drawable.ic_heart_empty)
                     favoriteRecipesIdSet.remove(recipe?.id.toString())
                 } else {
