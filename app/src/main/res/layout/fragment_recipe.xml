@@ -41,7 +41,7 @@
                 app:layout_constraintStart_toStartOf="@id/ivRecipe" />
 
             <ImageButton
-                android:id="@+id/ibFavourites"
+                android:id="@+id/ibFavorites"
                 android:layout_width="@dimen/imageButtonHeartWidth"
                 android:layout_height="@dimen/imageButtonHeartHeight"
                 android:scaleType="centerCrop"
