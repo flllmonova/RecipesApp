@@ -45,8 +45,10 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
             .setScale(1, HALF_UP)
             .run {
                 if (this.remainder(BigDecimal(1)) == BigDecimal("0.0")) {
-                    this.toBigInteger()
-                } else this.stripTrailingZeros()
+                    toBigInteger()
+                } else {
+                    stripTrailingZeros()
+                }
             }
         viewHolder.descriptionIngredientItem.text = ingredient.description
         viewHolder.quantityIngredientItem.text = (
@@ -54,7 +56,7 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
                 && ingredient.unitOfMeasure in pluralsUnitsOfMeasure
             ) {
                 viewHolder.itemView.resources.getQuantityString(
-                    pluralsUnitsOfMeasure.get(ingredient.unitOfMeasure)
+                    pluralsUnitsOfMeasure[ingredient.unitOfMeasure]
                         ?: R.plurals.unit_of_measure_default,
                     countedQuantity.toInt(), countedQuantity.toInt()
                 )

@@ -59,6 +59,13 @@ class RecipeFragment : Fragment() {
         } catch (e: Exception) {
             Log.e("Image not found", Log.getStackTraceString(e))
         }
+
+        binding.ibFavourites.apply {
+            setImageResource(R.drawable.ic_heart_empty)
+            setOnClickListener {
+                setImageResource(R.drawable.ic_heart)
+            }
+        }
     }
 
     private fun initRecycler() {
