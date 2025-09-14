@@ -49,7 +49,7 @@
                 android:layout_marginEnd="@dimen/margin16"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:contentDescription="@string/ic_favourites"
+                android:contentDescription="@string/image_button_favourites"
                 tools:src="@drawable/ic_heart_empty"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

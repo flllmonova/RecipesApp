@@ -2,7 +2,7 @@
     <string name="app_name">Recipes App</string>
     <string name="button_categories">категории</string>
     <string name="button_favourites">избранное</string>
-    <string name="ic_favourites">добавить в избранное</string>
+    <string name="image_button_favourites">добавить в избранное</string>
     <string name="title_categories">категории</string>
     <string name="content_desc_banner_categories">изображение категорий</string>
     <string name="content_desc_banner_category">изображение категории</string>
