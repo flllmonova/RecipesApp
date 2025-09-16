@@ -63,12 +63,11 @@ class RecipeFragment : Fragment() {
         }
 
         binding.ibFavorites.apply {
-            var favoriteRecipesIdSet = getFavorites()
-            if (recipe?.id.toString() in favoriteRecipesIdSet) setImageResource(R.drawable.ic_heart)
+            if (recipe?.id.toString() in getFavorites()) setImageResource(R.drawable.ic_heart)
             else setImageResource(R.drawable.ic_heart_empty)
 
             setOnClickListener {
-                favoriteRecipesIdSet = HashSet(getFavorites())
+                val favoriteRecipesIdSet = getFavorites()
                 if (recipe?.id.toString() in favoriteRecipesIdSet) {
                     setImageResource(R.drawable.ic_heart_empty)
                     favoriteRecipesIdSet.remove(recipe?.id.toString())
@@ -128,15 +127,17 @@ class RecipeFragment : Fragment() {
             Context.MODE_PRIVATE
         ) ?: return
         sharedPrefs.edit {
-            putStringSet(SET_FAVORITE_RECIPES_ID, recipesIdSet)
+            putStringSet(SET_FAVORITE_RECIPES_IDS, recipesIdSet)
             apply()
         }
     }
 
-    private fun getFavorites(): MutableSet<String> {
-        return activity
-            ?.getSharedPreferences(SHARED_PREFS_FAVORITES, Context.MODE_PRIVATE)
-            ?.getStringSet(SET_FAVORITE_RECIPES_ID, mutableSetOf<String>())
-            ?: mutableSetOf()
+    private fun getFavorites(): HashSet<String> {
+        return HashSet(
+            activity
+                ?.getSharedPreferences(SHARED_PREFS_FAVORITES, Context.MODE_PRIVATE)
+                ?.getStringSet(SET_FAVORITE_RECIPES_IDS, mutableSetOf<String>())
+                ?: mutableSetOf()
+        )
     }
 }
