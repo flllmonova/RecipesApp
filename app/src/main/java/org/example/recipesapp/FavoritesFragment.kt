@@ -30,6 +30,7 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
+        initUI()
     }
 
     override fun onDestroyView() {
@@ -46,8 +47,10 @@ class FavoritesFragment : Fragment() {
                 openRecipeByRecipeId(recipeId)
             }
         })
+    }
 
-        if (recipesIds.isEmpty()) {
+    private fun initUI() {
+        if (getFavorites().isEmpty()) {
             binding.rvFavorites.visibility = View.GONE
             binding.tvFavoritesStub.visibility = View.VISIBLE
         } else {
