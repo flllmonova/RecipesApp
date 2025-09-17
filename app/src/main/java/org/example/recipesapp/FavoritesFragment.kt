@@ -39,7 +39,7 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        val recipesIds = (getFavorites().mapNotNull { it.toIntOrNull() }).toSet()
+        val recipesIds = getFavorites().mapNotNull { it.toIntOrNull() }.toSet()
         val adapter = RecipesListAdapter(STUB.getRecipesByIds(recipesIds))
         binding.rvFavorites.adapter = adapter
         adapter.setOnItemClickListener(object : RecipesListAdapter.OnItemClickListener {
