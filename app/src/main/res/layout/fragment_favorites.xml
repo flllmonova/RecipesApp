@@ -1,17 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightBackgroundColor"
     tools:context=".FavoritesFragment">
 
-    <TextView
-        style="@style/StyleTitle14"
+    <ImageView
+        android:id="@+id/ivFavorites"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/headerHeight"
+        android:contentDescription="@string/content_desc_banner_favorites"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bcg_favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFavoritesTitle"
+        style="@style/StyleTitle20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin16"
+        android:layout_marginBottom="@dimen/margin16"
+        android:background="@drawable/shape_rounded_title"
+        android:padding="@dimen/padding10"
+        android:text="@string/title_favorites"
+        app:layout_constraintBottom_toBottomOf="@id/ivFavorites"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavorites"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin8"
+        android:layout_marginTop="@dimen/margin16"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivFavorites" />
+
+    <TextView
+        android:id="@+id/tvFavoritesStub"
+        style="@style/StyleDescription16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:gravity="center"
-        android:text="Fragment Favorites"
-        android:textSize="20sp" />
+        android:padding="@dimen/padding32"
+        android:text="@string/text_stub_screen_favorites"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivFavorites" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

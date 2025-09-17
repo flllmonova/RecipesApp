@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textSize12">12sp</dimen>
-    <dimen name="textSize14">14sp</dimen>
-    <dimen name="textSize16">16sp</dimen>
     <dimen name="textSize20">20sp</dimen>
-    <dimen name="lineHeight16">16sp</dimen>
-    <dimen name="lineHeight17">17sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize12">12sp</dimen>
     <dimen name="lineHeight24">24sp</dimen>
+    <dimen name="lineHeight20">20sp</dimen>
+    <dimen name="lineHeight17">17sp</dimen>
+    <dimen name="lineHeight16">16sp</dimen>
     <dimen name="buttonCornerRadius8">8dp</dimen>
     <dimen name="iconPadding10">10dp</dimen>
     <dimen name="padding8">8dp</dimen>
@@ -31,4 +32,5 @@
     <dimen name="seekBarProgressHeight">16dp</dimen>
     <dimen name="imageButtonHeartHeight">40dp</dimen>
     <dimen name="imageButtonHeartWidth">40dp</dimen>
+    <dimen name="padding32">32dp</dimen>
 </resources>
