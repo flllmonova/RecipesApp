@@ -1,4 +1,4 @@
-package org.example.recipesapp
+package org.example.recipesapp.ui.recipes.recipeslist
 
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -11,7 +11,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import org.example.recipesapp.R
+import org.example.recipesapp.data.STUB
 import org.example.recipesapp.databinding.FragmentRecipesListBinding
+import org.example.recipesapp.model.Category
+import org.example.recipesapp.ui.ARG_CATEGORY
+import org.example.recipesapp.ui.ARG_RECIPE
+import org.example.recipesapp.ui.recipes.recipe.RecipeFragment
+import org.example.recipesapp.ui.recipes.recipeslist.RecipesListAdapter
 import java.io.InputStream
 
 class RecipesListFragment : Fragment() {
