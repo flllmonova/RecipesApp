@@ -1,4 +1,4 @@
-package org.example.recipesapp
+package org.example.recipesapp.ui.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,11 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import org.example.recipesapp.R
+import org.example.recipesapp.data.STUB
 import org.example.recipesapp.databinding.FragmentListCategoriesBinding
+import org.example.recipesapp.ui.ARG_CATEGORY
+import org.example.recipesapp.ui.recipes.recipeslist.RecipesListFragment
 
 class CategoriesListFragment : Fragment() {
     private var _binding: FragmentListCategoriesBinding? = null

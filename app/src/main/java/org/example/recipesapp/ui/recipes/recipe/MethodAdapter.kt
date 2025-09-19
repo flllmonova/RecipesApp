@@ -1,8 +1,9 @@
-package org.example.recipesapp
+package org.example.recipesapp.ui.recipes.recipe
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.example.recipesapp.R
 import org.example.recipesapp.databinding.ItemStageBinding
 
 class MethodAdapter(private val dataSet: List<String>) :

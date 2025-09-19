@@ -1,4 +1,4 @@
-package org.example.recipesapp
+package org.example.recipesapp.ui.recipes.recipe
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -13,7 +13,12 @@ import android.widget.SeekBar
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.google.android.material.divider.MaterialDividerItemDecoration
+import org.example.recipesapp.R
 import org.example.recipesapp.databinding.FragmentRecipeBinding
+import org.example.recipesapp.model.Recipe
+import org.example.recipesapp.ui.ARG_RECIPE
+import org.example.recipesapp.ui.SET_FAVORITE_RECIPES_IDS
+import org.example.recipesapp.ui.SHARED_PREFS_FAVORITES
 import java.io.InputStream
 
 class RecipeFragment : Fragment() {

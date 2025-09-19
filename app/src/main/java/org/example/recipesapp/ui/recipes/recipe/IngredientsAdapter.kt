@@ -1,12 +1,19 @@
-package org.example.recipesapp
+package org.example.recipesapp.ui.recipes.recipe
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.example.recipesapp.R
 import org.example.recipesapp.databinding.ItemIngredientBinding
+import org.example.recipesapp.model.Ingredient
+import org.example.recipesapp.ui.PORTIONS_AMOUNT_MIN
+import org.example.recipesapp.ui.UNIT_OF_MEASURE_LEAF
+import org.example.recipesapp.ui.UNIT_OF_MEASURE_SLICE
+import org.example.recipesapp.ui.UNIT_OF_MEASURE_TABLE_SPOON
+import org.example.recipesapp.ui.UNIT_OF_MEASURE_TEA_SPOON
 import java.math.BigDecimal
 import java.math.BigInteger
-import java.math.RoundingMode.HALF_UP
+import java.math.RoundingMode
 
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
@@ -42,7 +49,7 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
         val ingredient = dataSet[position]
         val countedQuantity = BigDecimal(ingredient.quantity)
             .multiply(BigDecimal(quantity))
-            .setScale(1, HALF_UP)
+            .setScale(1, RoundingMode.HALF_UP)
             .run {
                 if (this.remainder(BigDecimal(1)) == BigDecimal("0.0")) {
                     toBigInteger()
