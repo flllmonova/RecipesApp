@@ -1,4 +1,8 @@
-package org.example.recipesapp
+package org.example.recipesapp.data
+
+import org.example.recipesapp.model.Category
+import org.example.recipesapp.model.Recipe
+import org.example.recipesapp.model.Ingredient
 
 object STUB {
 

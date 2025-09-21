@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightBackgroundColor"
-    tools:context=".FavoritesFragment">
+    tools:context=".ui.recipes.favorites.FavoritesFragment">
 
     <ImageView
         android:id="@+id/ivFavorites"
